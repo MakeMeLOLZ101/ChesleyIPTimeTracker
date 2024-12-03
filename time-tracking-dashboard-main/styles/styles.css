@@ -1,0 +1,228 @@
+@font-face {
+    font-family: Rubik;
+    src: url(../fonts/Rubik-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0E1323;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.dashboard {
+    max-width: 1110px;
+    width: 100%;
+    margin: auto;
+}
+
+.grid-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+.profile-card {
+    background-color: #1C204B;
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: 40px;
+}
+
+.profile-top {
+    background-color: #5747EA;
+    padding: 32px;
+    border-radius: 15px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 40px;
+}
+
+.report-text {
+    color: #bdc1ff;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.profile-name {
+    color: white;
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.timeframe-buttons {
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.timeframe-btn {
+    background: none;
+    border: none;
+    color: #7078c9;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.timeframe-btn:hover,
+.timeframe-btn.active {
+    color: white;
+}
+
+.activity-card {
+    border-radius: 15px;
+    padding-top: 40px;
+    position: relative;
+}
+
+.activity-content {
+    background-color: #1C204B;
+    border-radius: 15px;
+    padding: 28px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.activity-content:hover {
+    background-color: #34397b;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.activity-title {
+    color: white;
+    font-size: 18px;
+}
+
+.ellipsis {
+    color: #bdc1ff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-time {
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.previous-time {
+    color: #bdc1ff;
+    font-size: 15px;
+}
+
+.activity-card.work {
+    background-image: url(../images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: -5%;
+    background-color: #ff8c66; 
+}
+
+.activity-card.play { 
+    background-image: url(../images/icon-play.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: -5%;
+    background-color: #56c2e6; 
+}
+
+.activity-card.study { 
+    background-image: url(../images/icon-study.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: -5%;
+    background-color: #ff5c7c; 
+}
+
+.activity-card.exercise { 
+    background-image: url(../images/icon-exercise.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-color: #4acf81; 
+}
+
+.activity-card.social { 
+    background-image: url(../images/icon-social.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: -15%;
+    background-color: #7536d3; 
+}
+
+.activity-card.self-care { 
+    background-image: url(../images/icon-self-care.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: -5%;
+    background-color: #f1c75b; 
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+            "profile activity1 activity2 activity3"
+            "profile activity4 activity5 activity6";
+    }
+
+    .profile-card {
+        grid-area: profile;
+        grid-row: span 3;
+    }
+
+    #activity-container {
+        grid-column: 2 / span 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .timeframe-buttons {
+        padding: 24px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .time-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .current-time {
+        font-size: 56px;
+    }
+}
