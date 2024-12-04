@@ -36,14 +36,12 @@ body {
     border-radius: 15px;
     overflow: hidden;
     font-size: 40px;
-    max-height: 518px;
 }
 
 .profile-top {
     background-color: #5747EA;
     padding: 32px;
     border-radius: 15px;
-    max-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

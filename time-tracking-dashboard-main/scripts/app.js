@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let timeframeData = [];
     let currentTimeframe = 'weekly';
     const timeframes = ['Daily', 'Weekly', 'Monthly'];
     
@@ -42,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => {
                 document.querySelector('.timeframe-btn.active')?.classList.remove('active');
                 button.classList.add('active');
-                currentTimeframe = button.dataset.timeframe;
                 renderDashboard(currentTimeframe);
             });
         });
@@ -89,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initializer
     createDashboardStructure();
 
-    const data = [
+    const timeframeData = [
         {
             "title": "Work",
             "timeframes": {
@@ -140,6 +138,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
     
-    timeframeData = data;
     renderDashboard(currentTimeframe);
 });
