@@ -39,9 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         document.querySelectorAll('.timeframe-btn').forEach(button => {
             button.addEventListener('click', () => {
+                const newTimeframe = button.dataset.timeframe;
                 document.querySelector('.timeframe-btn.active')?.classList.remove('active');
                 button.classList.add('active');
-                renderDashboard(currentTimeframe);
+                currentTimeframe = newTimeframe;
+                renderDashboard(newTimeframe);
             });
         });
     }
