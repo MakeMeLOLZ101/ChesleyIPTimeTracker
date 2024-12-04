@@ -37,7 +37,6 @@ body {
     overflow: hidden;
     font-size: 40px;
     max-height: 518px;
-    min-width: 255px;
 }
 
 .profile-top {
@@ -209,7 +208,7 @@ body {
     }
 
     .profile-top {
-        min-height: 354px; /* Increased for desktop view */
+        min-height: 354px;
     }
 
     .profile-card {
@@ -247,7 +246,7 @@ body {
     }
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
     
 .profile-info-container{
     display: flex;
@@ -276,6 +275,5 @@ body {
     margin-top: 81px;
     margin-bottom: 81px;
 }
-
 
 }
