@@ -36,12 +36,18 @@ body {
     border-radius: 15px;
     overflow: hidden;
     font-size: 40px;
+    max-height: 518px;
+    min-width: 255px;
 }
 
 .profile-top {
     background-color: #5747EA;
     padding: 32px;
     border-radius: 15px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .profile-img {
@@ -61,7 +67,11 @@ body {
 .profile-name {
     color: white;
     font-weight: 300;
-    font-size: 40px;
+    font-size: 24px;
+}
+
+.profile-info {
+    flex-grow: 1;
 }
 
 .timeframe-buttons {
@@ -87,7 +97,7 @@ body {
 }
 
 .activity-card {
-    border-radius: 15px;
+    border-radius: 17px;
     padding-top: 40px;
     position: relative;
 }
@@ -116,6 +126,7 @@ body {
 .activity-title {
     color: white;
     font-size: 18px;
+    font-weight: 500;
 }
 
 .ellipsis {
@@ -188,7 +199,7 @@ body {
     background-color: #f1c75b; 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto auto;
@@ -197,16 +208,19 @@ body {
             "profile activity4 activity5 activity6";
     }
 
+    .profile-top {
+        min-height: 354px; /* Increased for desktop view */
+    }
+
     .profile-card {
-        grid-area: profile;
-        grid-row: span 3;
+        min-height: 500px;
     }
 
     #activity-container {
         grid-column: 2 / span 2;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 30px;
     }
 
     .timeframe-buttons {
@@ -225,4 +239,43 @@ body {
     .current-time {
         font-size: 56px;
     }
+
+    .profile-name {
+        color: white;
+        font-weight: 300;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 767px){
+    
+.profile-info-container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 0;
+}
+
+#activity-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+.grid-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+    margin-top: 81px;
+    margin-bottom: 81px;
+}
+
+
 }

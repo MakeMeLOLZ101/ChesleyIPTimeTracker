@@ -13,10 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         profileCard.className = 'profile-card';
         profileCard.innerHTML = `
             <div class="profile-top">
+            <div class="profile-info-container">
                 <img src="./images/image-jeremy.png" alt="Profile" class="profile-img">
                 <div class="profile-info">
                     <p class="report-text">Report for</p>
                     <h1 class="profile-name">Jeremy Robson</h1>
+                </div>
                 </div>
             </div>
             <div class="timeframe-buttons">
