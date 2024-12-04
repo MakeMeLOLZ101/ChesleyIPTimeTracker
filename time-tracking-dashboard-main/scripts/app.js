@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initializer
     createDashboardStructure();
 
-    // Loading
     const data = [
         {
             "title": "Work",
