@@ -1,6 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     let currentTimeframe = 'weekly';
     const timeframes = ['Daily', 'Weekly', 'Monthly'];
+    let timeframeData = [];
+
+    try {
+        const response = await fetch('./data.json');
+        if(!response.ok) {
+            throw new Error('Could not get JSON data. Try something new.');
+        }
+        timeframeData = await response.json();
+    } catch (error) {
+        console.error('Error loading data:', error);
+        const dashboard = document.getElementById('dashboard');
+        dashboard.innerHTML = '<p style = "color: white; text-align: center;"> Try Again!!!!</p>';
+        return;
+    }
     
     function createDashboardStructure() {
         const dashboard = document.getElementById('dashboard');
@@ -88,57 +102,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initializer
     createDashboardStructure();
-
-    const timeframeData = [
-        {
-            "title": "Work",
-            "timeframes": {
-                "daily": { "current": 5, "previous": 7 },
-                "weekly": { "current": 32, "previous": 36 },
-                "monthly": { "current": 103, "previous": 128 }
-            }
-        },
-        {
-            "title": "Play",
-            "timeframes": {
-                "daily": { "current": 1, "previous": 2 },
-                "weekly": { "current": 10, "previous": 8 },
-                "monthly": { "current": 23, "previous": 29 }
-            }
-        },
-        {
-            "title": "Study",
-            "timeframes": {
-                "daily": { "current": 0, "previous": 1 },
-                "weekly": { "current": 4, "previous": 7 },
-                "monthly": { "current": 13, "previous": 19 }
-            }
-        },
-        {
-            "title": "Exercise",
-            "timeframes": {
-                "daily": { "current": 1, "previous": 1 },
-                "weekly": { "current": 4, "previous": 5 },
-                "monthly": { "current": 11, "previous": 18 }
-            }
-        },
-        {
-            "title": "Social",
-            "timeframes": {
-                "daily": { "current": 1, "previous": 3 },
-                "weekly": { "current": 5, "previous": 10 },
-                "monthly": { "current": 21, "previous": 23 }
-            }
-        },
-        {
-            "title": "Self Care",
-            "timeframes": {
-                "daily": { "current": 0, "previous": 1 },
-                "weekly": { "current": 2, "previous": 2 },
-                "monthly": { "current": 7, "previous": 11 }
-            }
-        }
-    ];
-    
     renderDashboard(currentTimeframe);
 });
