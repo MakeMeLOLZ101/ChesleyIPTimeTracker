@@ -132,6 +132,11 @@ body {
     cursor: pointer;
 }
 
+.ellipsis:hover,
+.ellipsis:active{
+    color: white;
+}
+
 .time-container {
     display: flex;
     justify-content: space-between;
